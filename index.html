@@ -31,11 +31,12 @@
             --border-hl: rgba(12,117,122,0.40);
             --text: #0f172a;
             --muted: #64748b;
-            --accent: #0c757a;
-            --accent-dk: #075e63;
+            --accent: #c9ff3d;
+            --accent-dk: #a8e21d;
             --blue: #082f63;
-            --accent-lg: rgba(12,117,122,0.10);
-            --glow: 0 20px 60px -10px rgba(12,117,122,0.22);
+            --teal: #0c757a;
+            --accent-lg: rgba(201,255,61,0.16);
+            --glow: 0 20px 60px -10px rgba(201,255,61,0.22);
             --radius: 1.25rem;
             --fh: 'Space Grotesk', system-ui, sans-serif;
             --fb: 'Inter', system-ui, sans-serif;
@@ -132,7 +133,10 @@
             content: "";
             position: absolute;
             inset: 62px 0 0;
-            background: linear-gradient(90deg, rgba(8,47,99,0.78), rgba(8,47,99,0.20) 48%, rgba(12,117,122,0.12)), url("assets/images/oberstufengemaesser-sportunterricht.png") center/cover;
+            background:
+                linear-gradient(90deg, rgba(3,16,39,0.94) 0%, rgba(5,28,62,0.82) 36%, rgba(5,28,62,0.40) 66%, rgba(3,16,39,0.18) 100%),
+                linear-gradient(180deg, rgba(3,16,39,0.32) 0%, rgba(3,16,39,0.66) 100%),
+                url("assets/images/oberstufengemaesser-sportunterricht.png") center/cover;
             z-index: -2;
         }
 
@@ -149,15 +153,24 @@
             width: min(1120px, 100%);
             margin: 0 auto;
             color: #fff;
+            max-width: 780px;
+            margin-left: max(24px, calc((100vw - 1120px) / 2));
+            padding: 28px 30px 30px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, rgba(3,16,39,0.86), rgba(8,47,99,0.68));
+            border: 1px solid rgba(201,255,61,0.26);
+            box-shadow: 0 28px 90px -34px rgba(0,0,0,0.82);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255,255,255,0.16);
-            border: 1px solid rgba(255,255,255,0.30);
-            color: #fff;
+            background: rgba(201,255,61,0.18);
+            border: 1px solid rgba(201,255,61,0.52);
+            color: var(--accent);
             font-size: 0.75rem;
             font-weight: 800;
             letter-spacing: 0.07em;
@@ -170,18 +183,28 @@
         .hero h1 {
             font-family: var(--fh);
             font-size: clamp(2.1rem, 6vw, 4.6rem);
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: -0.04em;
             line-height: 1.02;
             max-width: 830px;
             margin-bottom: 18px;
+            color: #f8fafc;
+            text-shadow: 0 3px 24px rgba(0,0,0,0.72);
+        }
+
+        .hero h1 em {
+            color: var(--accent);
+            font-style: normal;
+            text-shadow: 0 0 22px rgba(201,255,61,0.30), 0 3px 22px rgba(0,0,0,0.72);
         }
 
         .hero p {
             font-size: clamp(1rem, 2vw, 1.15rem);
-            color: rgba(255,255,255,0.90);
+            color: rgba(255,255,255,0.96);
             max-width: 680px;
             line-height: 1.75;
+            font-weight: 600;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.64);
         }
 
         .hero-actions {
@@ -198,9 +221,9 @@
             margin-top: 16px;
             border-radius: 999px;
             padding: 6px 12px;
-            background: rgba(255,255,255,0.14);
-            border: 1px solid rgba(255,255,255,0.28);
-            color: rgba(255,255,255,0.88);
+            background: rgba(201,255,61,0.14);
+            border: 1px solid rgba(201,255,61,0.36);
+            color: rgba(244,255,207,0.95);
             font-size: 0.78rem;
             font-weight: 700;
         }
@@ -646,7 +669,7 @@
 <header class="hero" onclick="openLightbox()" role="button" tabindex="0" aria-label="Headergrafik öffnen">
     <div class="hero-inner">
         <div class="badge">Ralf Duwenbeck · 2026 · Sekundarstufe II</div>
-        <h1>Was ist oberstufengemäßer Sportunterricht?</h1>
+        <h1>Was ist <em>oberstufengemäßer Sportunterricht?</em></h1>
         <p>Sport. Verstehen. Reflektieren. Gestalten. Oberstufengemäßer Sportunterricht verbindet Bewegungspraxis mit wissenschaftlichem Denken und befähigt Lernende zu eigenständigem, begründetem Handeln im Sport.</p>
         <div class="hero-actions">
             <a class="btn btn-primary" href="#grundsatz" onclick="event.stopPropagation()">Grundsatz lesen</a>
